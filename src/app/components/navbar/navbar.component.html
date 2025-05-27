@@ -1,0 +1,19 @@
+<div class="navbar bg-base-100 shadow-sm">
+  <div class="flex-1">
+    <a class="btn btn-soft btn-warning text-4xl">PipesApp</a>
+  </div>
+  <div class="flex-none">
+    <ul class="menu menu-horizontal px-1">
+      @for (route of routesNav; track route.path) {
+      <li>
+        <a
+          class="btn btn-outline btn-primary"
+          [routerLink]="route.path"
+          routerLinkActive="text-success"
+          >{{ route.title }}</a
+        >
+      </li>
+      }
+    </ul>
+  </div>
+</div>

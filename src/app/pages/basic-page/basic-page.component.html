@@ -1,0 +1,21 @@
+<section class="flex flex-col gap-8">
+  <h1 class="text-7xl text-center">Basic Pipes</h1>
+  <div class="stats stats-vertical lg:stats-horizontal shadow w-auto mx-auto">
+    <div class="stat">
+      <div class="stat-title">UpperCase Pipe</div>
+      <div class="stat-value">{{ nameLower() | uppercase }}</div>
+      <div class="stat-desc">{{ nameLower() }}</div>
+    </div>
+    <div class="stat">
+      <div class="stat-title">LowerCase Piper</div>
+      <div class="stat-value">{{ nameUpper() | lowercase }}</div>
+      <div class="stat-desc">{{ nameUpper() }}</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-title">Title Pipe</div>
+      <div class="stat-value">{{ fullName() | titlecase }}</div>
+      <div class="stat-desc">{{ fullName() }}</div>
+    </div>
+  </div>
+</section>
