@@ -1,1 +1,112 @@
-<p>uncommon-page works!</p>,
+<card-content titleCardComp="Uncommon Pipes">
+  <!-- Cards -->
+  <app-card cardTitle="i18nSelectPipe">
+    <p class="text">
+      Hola buenas tardes {{ client().name }},
+      {{ client().gender | i18nSelect : inivtatioMap }}, espero tenga un buen
+      día.
+    </p>
+    <button
+      (click)="changeClient()"
+      class="btn btn-outline btn-warning rounded-sm"
+    >
+      Change Client
+    </button>
+
+    <!-- Plural Pipe -->
+  </app-card>
+  <app-card cardTitle="i18nPluralPipe">
+    <p class="text">{{ clients().length | i18nPlural : clientsMap() }}</p>
+    <button
+      (click)="deleteClient()"
+      [disabled]="clients().length === 0"
+      class="btn btn-outline btn-warning rounded-sm"
+    >
+      Delete Client
+    </button>
+  </app-card>
+  <!-- Slice Pipe -->
+  <app-card cardTitle="Slice Pipe">
+    <strong><b>Original !!</b></strong>
+    <p class="text-stone-400">
+      {{ clients().join("- ") }}
+    </p>
+    <strong class="m-2"><b>Slice:0:2</b></strong>
+    <p class="text-stone-400">
+      {{ clients() | slice : 0 : 2 }}
+    </p>
+    <strong class="m-2"><b>Slice:0:-2</b></strong>
+    <p class="text-stone-400">
+      {{ clients() | slice : 0 : -2 }}
+    </p>
+  </app-card>
+  <!-- Json Pipe -->
+  <app-card cardTitle="Json Pipe">
+    <p class="text-stone-400">
+      {{ clients() | json }}
+    </p>
+    <p class="text-stone-400">
+      {{ client() | json }}
+    </p>
+  </app-card>
+  <!-- KeyValue Pipe -->
+  <app-card cardTitle="Json Pipe">
+    <p class="text-stone-400">
+      {{ profile | keyvalue | json }}
+    </p>
+    <ul>
+      @for (item of profile | keyvalue; track $index) {
+      <li>
+        <strong class="text-amber-600">{{ item.key | titlecase }}</strong
+        >:
+        <span>{{ item.value }}</span>
+      </li>
+      }
+    </ul>
+  </app-card>
+  <!-- Async Pipe -->
+  <app-card cardTitle="Async Pipe">
+    <p class="text-amber-400">
+      {{ promiseValue | async }}
+    </p>
+    <h3 class="text-2xl">Promesa Async</h3>
+    @if (promiseValue | async; as value) {
+    <p class="text-amber-600">
+      {{ value }}
+    </p>
+    }
+    <h3 class="text-2xl">Observal Async</h3>
+    <p class="text-amber-500">{{ myObservableTimer | async }}</p>
+    @if (myObservableTimer | async; as value) {
+    <p class="text-amber-300">{{ value }}</p>
+    } @else {
+    <div class="flex flex-row gap-2 w-fit">
+      <p class="text-amber-300">Esperando un valor !!!</p>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+      >
+        <path
+          fill="#fff"
+          d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm0,19a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"
+          opacity="0.25"
+        />
+        <path
+          fill="#fff"
+          d="M10.14,1.16a11,11,0,0,0-9,8.92A1.59,1.59,0,0,0,2.46,12,1.52,1.52,0,0,0,4.11,10.7a8,8,0,0,1,6.66-6.61A1.42,1.42,0,0,0,12,2.69h0A1.57,1.57,0,0,0,10.14,1.16Z"
+        >
+          <animateTransform
+            attributeName="transform"
+            dur="0.75s"
+            repeatCount="indefinite"
+            type="rotate"
+            values="0 12 12;360 12 12"
+          />
+        </path>
+      </svg>
+    </div>
+    }
+  </app-card>
+</card-content>

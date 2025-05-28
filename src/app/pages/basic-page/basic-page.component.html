@@ -1,4 +1,4 @@
-<section class="flex flex-col gap-8">
+<section class="flex flex-col gap-8 my-4">
   <h1 class="text-7xl text-center">Basic Pipes</h1>
   <div class="stats stats-vertical lg:stats-horizontal shadow w-auto mx-auto">
     <div class="stat">
@@ -16,6 +16,76 @@
       <div class="stat-title">Title Pipe</div>
       <div class="stat-value">{{ fullName() | titlecase }}</div>
       <div class="stat-desc">{{ fullName() }}</div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="stats stats-vertical lg:stats-horizontal shadow w-auto mx-auto">
+    <div class="stat">
+      <div class="stat-title">Date Pipe</div>
+      <div class="stat-value">{{ customDate() | date }}</div>
+      <div class="stat-desc">{{ customDate() }}</div>
+    </div>
+    <div class="stat">
+      <div class="stat-title">Date | FullDate</div>
+      <div class="stat-value">
+        {{ customDate() | date : "medium" : "GMT-6" }}
+      </div>
+      <div class="stat-desc">{{ customDate() }}</div>
+    </div>
+    <div class="stat">
+      <div class="stat-title">Date Properties</div>
+      <div class="stat-value">
+        {{ customDate() | date : "cccc/MMMM/YYYY" }}
+      </div>
+      <div class="stat-desc">{{ customDate() }}</div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="stats stats-vertical lg:stats-horizontal shadow w-auto mx-auto">
+    <div class="stat">
+      <div class="stat-title">Date Pipe</div>
+      <div class="stat-value">{{ customDate() | date : "dd/LLL/yyyy" }}</div>
+      <div class="stat-desc">{{ customDate() }}</div>
+    </div>
+    <div class="stat">
+      <div class="stat-title">Date | FullDate</div>
+      <div class="stat-value">
+        {{ customDate() | date : "HH:mm:ss" }}
+      </div>
+      <div class="stat-desc">{{ customDate() }}</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-title">Date/Month Pipe</div>
+      <div class="stat-value">{{ customDate() | date : "EEEE d, MMMM" }}</div>
+      <div class="stat-desc">{{ customDate() }}</div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="flex flex-col gap-5 bg-neutral-900 w-fit p-2 rounded-md">
+    <h1 class="text-3xl font-bold">
+      Currently Locale
+      <span class="badge badge-success rounded-md">{{
+        currentLocale() | uppercase
+      }}</span>
+    </h1>
+    <div class="flex flex-row gap-3">
+      <button
+        (click)="changeLocale('en')"
+        class="btn btn-dash btn-success rounded-md"
+      >
+        Change at English</button
+      ><button
+        (click)="changeLocale('es')"
+        class="btn btn-dash btn-success rounded-md"
+      >
+        Cambiar a Español</button
+      ><button
+        (click)="changeLocale('ja')"
+        class="btn btn-dash btn-success rounded-md"
+      >
+        Cambiar a taka taka
+      </button>
     </div>
   </div>
 </section>
