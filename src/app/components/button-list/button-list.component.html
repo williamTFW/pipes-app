@@ -1,0 +1,26 @@
+<h1 class="text-2xl">Filtrando por: {{ searchQuery() }}</h1>
+<h1 class="text-2xl">Ordenando por: {{ sortBy() }}</h1>
+<div class="btnContainer flex flex-row items-center gap-4 my-2">
+  <div class="flex flex-col items-center">
+    <input
+      type="text"
+      class="input border-0 border-b-2 border-amber-600 input-sm w-50"
+      placeholder="Search Hero"
+      (keyup)="searchQuery.set(txtSearch.value)"
+      #txtSearch
+    />
+  </div>
+  <div class="flex flex-row gap-4 ml-auto">
+    <button class="btn btn-primary rounded-sm" (click)="sortBy.set('name')">
+      Name</button
+    ><button class="btn btn-danger rounded-sm" (click)="sortBy.set('canFly')">
+      Can fly</button
+    ><button class="btn btn-success rounded-sm" (click)="sortBy.set('color')">
+      Color</button
+    ><button class="btn btn-warning rounded-sm" (click)="sortBy.set('creator')">
+      Creator</button
+    ><button class="btn btn-error rounded-sm" (click)="sortBy.set('id')">
+      id
+    </button>
+  </div>
+</div>

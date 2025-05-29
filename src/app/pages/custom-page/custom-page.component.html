@@ -18,6 +18,17 @@
       </button>
     </div>
   </app-card>
-  <div class="divider col-span-2"></div>
-  <app-table class="col-span-2"></app-table>
+  <div class="divider col-span-2 my-9"></div>
+  <button-list
+    [sortBy]="sortBy"
+    [searchQuery]="querySearch"
+    class="col-span-2"
+    >{{ sortBy() }}</button-list
+  >
+  <app-table
+    class="col-span-2"
+    [heros]="heros()"
+    [sortBy]="sortBy"
+    [querySearch]="querySearch"
+  ></app-table>
 </div>
